@@ -57,11 +57,12 @@ const Cart = () => {
     const changeValue = (id, value) => {
         setCart((cart) =>
             cart.map((product) => {
+                value = Math.max(1, value)
                 if (product.id === id) {
                     return {
                         ...product,
                         count: value,
-                        priceTotal: product.count * product.price,
+                        priceTotal: value * product.price,
                     };
                 }
                 return product
